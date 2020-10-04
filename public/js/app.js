@@ -5647,14 +5647,38 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["{\n            posts {\n                id\n                title\n            }\n        }"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PostList"
+  name: "PostList",
+  apollo: {
+    posts: graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject())
+  }
 });
 
 /***/ }),
@@ -30729,7 +30753,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    PostList\n")])
+  return _c("div", [
+    _vm.$apollo.loading
+      ? _c("div", [_vm._v("Loading ...")])
+      : _c(
+          "div",
+          _vm._l(_vm.posts, function(post) {
+            return _c("div", { key: post.id }, [
+              _vm._v(_vm._s(post.id) + " is titled: " + _vm._s(post.title))
+            ])
+          }),
+          0
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
