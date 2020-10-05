@@ -4,8 +4,8 @@ import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 
 import  './bootstrap';
-import PostList from "./components/PostList";
-import Post from "./components/Post";
+import PostList from "./screens/PostList";
+import Post from "./screens/Post";
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -19,7 +19,7 @@ const routes = [
     },
     {
         path: '/post/:id',
-        name: 'name',
+        name: 'post',
         component: Post
     }
 ];
