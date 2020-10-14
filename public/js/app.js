@@ -5658,6 +5658,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["query ($id: ID!) {\n                post(id: $id) {\n                    id,\n                    title,\n                    content,\n                    author {\n                        id,\n                        name,\n                        avatar\n                    }\n                    topic {\n                        name\n                        slug\n                    }\n                }\n            }"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 //
 //
 //
@@ -5686,8 +5700,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PostVue"
+  name: "PostVue",
+  apollo: {
+    post: {
+      query: graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject()),
+      variables: function variables() {
+        return {
+          id: this.$route.params.id
+        };
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -30839,58 +30865,64 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 mt-20"
-      },
-      [
-        _c("div", [
-          _c("div", { staticClass: "text-lg text-gray-600" }, [
-            _vm._v("\n            By Aleksey in Links 3 hours ago\n        ")
-          ]),
-          _vm._v(" "),
-          _c("h1", { staticClass: "text-5xl mt-10 font-bold mb-12" }, [
-            _vm._v("The post title")
-          ]),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "text-gray-700 pb-3 mb-12 whitespace-pre-line" },
-            [_vm._v("\n            The Content\n        ")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-24 flex" }, [
-            _c("div", { staticClass: "mr-6" }, [
-              _c("img", {
-                staticClass: "w-16 h-16 rounded-full",
-                attrs: { src: "/storage/faces/ahmad.jpg", alt: "avatar" }
-              })
+  return _c(
+    "div",
+    {
+      staticClass:
+        "container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 mt-20"
+    },
+    [
+      _vm.$apollo.loading
+        ? _c("div", [_vm._v("Loading...")])
+        : _c("div", [
+            _c("div", { staticClass: "text-lg text-gray-600" }, [
+              _vm._v(
+                "\n            By " +
+                  _vm._s(_vm.post.author.name) +
+                  " in " +
+                  _vm._s(_vm.post.topic.name) +
+                  " 3 hours ago\n        "
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "flex flex-col justify-center" }, [
-              _c("div", { staticClass: "text-xl text-gray-600" }, [
-                _vm._v("Written by Piotr Jura")
+            _c("h1", { staticClass: "text-5xl mt-10 font-bold mb-12" }, [
+              _vm._v(_vm._s(_vm.post.title))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 pb-3 mb-12" }, [
+              _vm._v("\n            " + _vm._s(_vm.post.content) + "\n        ")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-24 flex" }, [
+              _c("div", { staticClass: "mr-6" }, [
+                _c("img", {
+                  staticClass: "w-16 h-16 rounded-full",
+                  attrs: {
+                    src: "/storage/faces/" + _vm.post.author.avatar,
+                    alt: "avatar"
+                  }
+                })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-gray-600" }, [
-                _vm._v("Published in Links on May 19, 2020")
+              _c("div", { staticClass: "flex flex-col justify-center" }, [
+                _c("div", { staticClass: "text-xl text-gray-600" }, [
+                  _vm._v("Written by " + _vm._s(_vm.post.author.name))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-gray-600" }, [
+                  _vm._v(
+                    "Published in " +
+                      _vm._s(_vm.post.topic.name) +
+                      " on May 19, 2020"
+                  )
+                ])
               ])
             ])
           ])
-        ])
-      ]
-    )
-  }
-]
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
