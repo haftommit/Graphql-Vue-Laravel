@@ -6,6 +6,7 @@ import VueApollo from 'vue-apollo';
 import  './bootstrap';
 import PostList from "./screens/PostList";
 import TopicList from "./screens/TopicList";
+import AuthorPostList from "./screens/AuthorPostList";
 import Post from "./screens/Post";
 
 window.Vue = Vue;
@@ -27,6 +28,11 @@ const routes = [
         path: '/topics/:slug',
         name: 'topic',
         component: TopicList
+    },
+    {
+        path: '/authors/:id',
+        name: 'author',
+        component: AuthorPostList
     }
 ];
 
