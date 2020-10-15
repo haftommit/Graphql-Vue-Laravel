@@ -5,6 +5,7 @@ import VueApollo from 'vue-apollo';
 
 import  './bootstrap';
 import PostList from "./screens/PostList";
+import TopicList from "./screens/TopicList";
 import Post from "./screens/Post";
 
 window.Vue = Vue;
@@ -21,6 +22,11 @@ const routes = [
         path: '/post/:id',
         name: 'post',
         component: Post
+    },
+    {
+        path: '/topics/:slug',
+        name: 'topic',
+        component: TopicList
     }
 ];
 

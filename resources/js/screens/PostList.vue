@@ -27,6 +27,15 @@ export default {
                 id
                 title,
                 lead
+                created_at
+                author {
+                    id
+                    name
+                }
+                topic {
+                    name
+                    slug
+                }
             }
         }`
     }
