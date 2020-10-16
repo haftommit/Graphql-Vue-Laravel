@@ -9,6 +9,7 @@ import PostList from "./screens/PostList";
 import TopicList from "./screens/TopicList";
 import AuthorPostList from "./screens/AuthorPostList";
 import Post from "./screens/Post";
+import NotFound from "./screens/NotFound";
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -41,11 +42,7 @@ const routes = [
     {
         path: '*',
         name: '404',
-        component: {
-            template: `
-                <h2>Page Not Found</h2>
-            `
-        }
+        component: NotFound
     }
 ];
 

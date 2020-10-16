@@ -16714,6 +16714,10 @@ video {
   transition-delay: 1000ms;
 }
 
+.text-shadow {
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 1);
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
