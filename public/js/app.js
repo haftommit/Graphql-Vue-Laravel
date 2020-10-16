@@ -5804,6 +5804,11 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
         return {
           id: this.$route.params.id
         };
+      },
+      error: function error() {
+        this.$router.push({
+          name: '404'
+        });
       }
     }
   }
@@ -68920,6 +68925,12 @@ var routes = [{
   path: '/authors/:id',
   name: 'author',
   component: _screens_AuthorPostList__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, {
+  path: '*',
+  name: '404',
+  component: {
+    template: "\n                <h2>Page Not Found</h2>\n            "
+  }
 }];
 var apolloClient = new apollo_boost__WEBPACK_IMPORTED_MODULE_2__["default"]({
   uri: 'http://localhost:8001/graphql'
