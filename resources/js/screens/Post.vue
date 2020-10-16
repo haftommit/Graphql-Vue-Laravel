@@ -11,7 +11,7 @@
                     :to="{name: 'topic', params: {slug: post.topic.slug}}"
                     class="underline hover:text-black"
                 >{{ post.topic.name }}</router-link>
-                3 hours ago
+                {{ post.created_at | timeAgo }}
             </div>
             <h1 class="text-5xl mt-10 font-bold mb-12">{{ post.title }}</h1>
 
@@ -39,7 +39,7 @@
                             :to="{name: 'topic', params: {slug: post.topic.slug}}"
                             class="underline hover:text-black"
                         >{{ post.topic.name }}</router-link>
-                        on May 19, 2020</div>
+                        on {{ post.created_at | longDate }}</div>
                 </div>
             </div>
         </div>
@@ -58,6 +58,7 @@ export default {
                     id,
                     title,
                     content,
+                    created_at
                     author {
                         id,
                         name,
